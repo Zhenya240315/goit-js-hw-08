@@ -18,7 +18,7 @@ function onFormInput(event) {
 }
 
 function onFormSubmit(event) {
-  //кнопка submit. перевіряємо поля, вивонимо в констоль,  очищуемо форму
+  //кнопка submit. перевіряємо поля, виводимо в констоль,  очищуемо форму
   event.preventDefault();
   const {
     elements: { email, message },
@@ -34,10 +34,11 @@ function onFormSubmit(event) {
   storage = formData;
   setStorage(storageKey, formData);
   event.currentTarget.reset();
+  localStorage.removeItem(storageKey);
 }
 
 function containsАormValues() {
-  // заповнюєо форму після завантаження
+  // заповнює форму після завантаження
   if (!storage) {
     storage = {};
     return;
